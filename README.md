@@ -1,3 +1,2 @@
 # estudoAngularLivro
-Estudo do livro Angular
-Bla
+Estudo do livro Angular.
