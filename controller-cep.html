@@ -10,7 +10,9 @@
    <script>
       var app = angular.module('myApp', ['ngResource'])
       .controller('myCtrl', function($scope, myResource) {
-           $scope.cep = "99150000", $scope.city = null;
+           $scope.cep = "20090003";
+           $scope.cidade = null;
+           
            $scope.buscarCep = function () {
              myResource.get({'cep': $scope.cep}).$promise
              .then(function success(result){
@@ -21,8 +23,7 @@
             }
       })
       .factory('myResource', function ($resource) {
-      	var rest = $resource(
-            'https://viacep.com.br/ws/:cep/json/',
+      	var rest = $resource('https://viacep.com.br/ws/:cep/json/',
             {
               'cep': ''
             }
