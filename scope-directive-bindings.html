@@ -6,7 +6,7 @@
 <div>
 	<span>Contador-Pai: {{count}}</span><br/>
   <button ng-click="incrementCount()">Incrementar Contador-Pai</button>
-    <div my-dir count-alert-handler="alertCount(label, parentControllerCount)" count="count" label="Total contador: " />
+    <div my-directive count-alert-handler="alertCount(label, parentControllerCount)" count="count" label="Total contador: " />
 </div>
 
 
@@ -24,7 +24,7 @@
       $scope.count++;
     }
 	})
-	.directive('myDir', function() {
+	.directive('myDirective', function() {
       return {
         	scope: {
           count: "=",
