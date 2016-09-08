@@ -6,7 +6,7 @@
 <div>
     <span>-SCOPE: false-</span><br/>
     <span>Parent Count: {{count}} </span><br/>
-    <div my-dir />
+    <div my-directive />
 </div>
 <script src="angular.min.js"></script>
 
@@ -14,7 +14,7 @@
 	angular.module('myApp', []).controller('ParentController', function($scope) {
 		$scope.count = 10; //scope pai, será ignorado
 	})
-	.directive('myDir', function() {
+	.directive('myDirective', function() {
       return {
       	scope: false,
       	link: function(scope) {
