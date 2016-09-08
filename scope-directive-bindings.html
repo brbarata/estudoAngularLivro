@@ -13,36 +13,35 @@
 <script src="angular.min.js"></script>
 
 <script type="text/javascript">
-	angular.module('myApp', []).controller('ParentController', function($scope) {
-		$scope.count = 1 //scope pai
+     angular.module('myApp', []).controller('ParentController', function($scope) {
+ 	$scope.count = 1 //scope pai
 
     $scope.alertCount = function(label, parentControllerCount) {
       window.alert(label + ' ' + parentControllerCount);
     }
 
-    $scope.incrementCount = function() {
-      $scope.count++;
-    }
-	})
-	.directive('myDirective', function() {
-      return {
-        	scope: {
-          count: "=",
-          countAlertHandler: "&",
-          label: '@'
-        },
-      	link: function(scope, element, attrs) {
-          var button = angular.element('<button>Alert Parent Count</button>'); //nome do botao
-          button.on('click', function() {
-            scope.countAlertHandler({label: scope.label, parentControllerCount: scope.count});
-          });
-          element.append(button);
-      	}
-      };
-	});
+     $scope.incrementCount = function() {
+       $scope.count++;
+     }
+   })
+    .directive('myDirective', function() {
+     return {
+       	scope: {
+         count: "=",
+         countAlertHandler: "&",
+         label: '@'
+       },
+       link: function(scope, element, attrs) {
+        var button = angular.element('<button>Alert Parent Count</button>'); //nome do botao
+        button.on('click', function() {
+          scope.countAlertHandler({label: scope.label, parentControllerCount: scope.count});
+        });
+        element.append(button);
+     }
+     };
+});
 
 
 </script>
-
 </body>
 </html>
