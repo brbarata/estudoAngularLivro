@@ -4,10 +4,11 @@
 <body ng-controller="ParentController">
 
 <div>
-	<span>Contador-Pai: {{count}}</span><br/>
-  <button ng-click="incrementCount()">Incrementar Contador-Pai</button>
-    <div my-directive count-alert-handler="alertCount(label, parentControllerCount)" count="count" label="Total contador: " />
-</div>
+   <span>Contador-Pai: {{count}}</span><br/>
+     <button ng-click="incrementCount()">Incrementar Contador-Pai</button>
+     <div my-directive count-alert-handler="alertCount(label, parentControllerCount)" count="count" label="Total contador: " /> //nome do metodo na diretiva, que recebe esses parametros 
+     </div>
+    <button ng-click="limparCount()">Limpar</button>
 
 
 <script src="angular.min.js"></script>
@@ -23,6 +24,11 @@
      $scope.incrementCount = function() {
        $scope.count++;
      }
+
+     $scope.limparCount = function() {
+       $scope.count = 1;
+     }
+
    })
     .directive('myDirective', function() {
      return {
