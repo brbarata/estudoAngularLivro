@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<div ng-controller="CharadaController">
+      <minha-charada titulo="{{titulo}}" ></minha-charada>
+</div>
+
+<script src="angular.min.js"></script>
+
+<script type="text/javascript">
+	angular.module('myApp', []).controller('CharadaController', function($scope) {
+           $scope.titulo = "Alura";
+     }).directive('minhaCharada', function() {
+       var ddo = {};
+       ddo.restrict = 'E';
+       ddo.scope = {
+            titulo: '@'
+       };
+       ddo.template = '<p>{{titulo}}</p>';
+       return ddo;
+   });
+
+
+
+</script>
+
+</body>
+</html>
+<!--
+
+<div ng-controller="CharadaController">
+      <minha-charada titulo="{{titulo}}" ></minha-charada>
+</div>
+
+angular.module('puzzle').controller('CharadaController', function($scope) {
+           $scope.titulo = "Alura";
+     });
+
+angular.module('puzzle').directive('minhaCharada', function() {
+       var ddo = {};
+       ddo.restrict = 'E';
+       ddo.scope = {
+            titulo: '@'
+       };
+       ddo.template = '<p>{{titulo}}</p>';
+       return ddo;
+   }); 
+-->
