@@ -1,0 +1,41 @@
+<!-- random-position.html -->
+<!doctype html>
+<html ng-app="myApp">
+<body>
+
+	<h1> EAE?? </h1>
+
+	<span random-position>element</span>
+	
+	<script src="angular.min.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []).directive('randomPosition', function() {
+			return function(scope, element, attr) {
+				var x = 0, y = 0;
+				element.css({
+					backgroundColor: '#F4F4F4',
+					border: '1px dashed #CCCCCC',
+					cursor: 'pointer',
+					marginTop: '5px',
+					padding: '10px',
+					position: 'relative'
+				});
+
+				element.attr('title', 'Xow??!');
+				element.on('mousemove', mouseclick); //pega o evento do mouse, no caso, 'mousemove'
+
+				function mouseclick(event) {
+					y = Math.floor((Math.random() * event.pageY) + 10);
+					x = Math.floor((Math.random() * event.pageX) + 10);
+					element.css({ 
+							top: y + 'px',
+							left: x + 'px'
+						});
+					}
+				};
+			});
+
+	</script>
+</body>
+</html>
