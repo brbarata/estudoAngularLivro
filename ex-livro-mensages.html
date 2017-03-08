@@ -10,13 +10,17 @@
 	.warning {
 	background-color: yellow;
 	}
+	.info {
+	background-color: lightgreen;
+	}
 </style>
 
 <div ng-controller='HeaderController'>
 
-<div ng-class='{error: isError, warning: isWarning}'>{{messageText}}</div>
+<div ng-class='{error: isError, warning: isWarning, info: isInfo}'>{{messageText}}</div>
 
 <button ng-click='showError()'>Simulate Error</button>
+<button ng-click='showInfo()'>Simulate Info</button>
 <button ng-click='showWarning()'>Simulate Warning</button>
 </div>
 
@@ -26,18 +30,27 @@
 	function HeaderController($scope) {
 		$scope.isError = false;
 		$scope.isWarning = false;
+		$scope.isInfo = false;
 
 	$scope.showError = function() {
 		$scope.messageText = 'This is an error!';
-		$scope.isError = true;
+		$scope.isInfo = false;
 		$scope.isWarning = false;
+		$scope.isError = true;
 	};
 
-
+	$scope.showInfo = function() {
+		$scope.messageText = 'This is an info!';
+		$scope.isError = false;
+		$scope.isWarning = false;
+		$scope.isInfo = true;
+	};
+		
 	$scope.showWarning = function() {
 		$scope.messageText = 'Just a warning.'
-		$scope.isWarning = true;
+		$scope.isInfo = false;
 		$scope.isError = false;
+		$scope.isWarning = true;
 	};
 }
 </script>
